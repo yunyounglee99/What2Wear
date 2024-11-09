@@ -11,7 +11,8 @@
 
 ### FASHION CLIP
 
-<img width="686" alt="image 3" src="https://github.com/user-attachments/assets/346daca7-d2bc-4bcc-94a3-ba8f2945d140">
+<img width="909" alt="image" src="https://github.com/user-attachments/assets/7b827354-2a6c-4e10-bf7d-c51bdab2623f">
+
 
 - FASHION CLIP은 단일 패션 이미지 아이템, 캡션 쌍 데이터셋으로 학습된 CLIP 기반 모델입니다.
 
