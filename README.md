@@ -12,11 +12,12 @@
 
 ### FASHION CLIP
 
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/24fda302-26e0-44cb-9d15-d463de620472/123add0f-c90e-42aa-828b-e34259315775/image.png)
+<img width="686" alt="image 3" src="https://github.com/user-attachments/assets/346daca7-d2bc-4bcc-94a3-ba8f2945d140">
 
 - FASHION CLIP은 단일 패션 이미지 아이템, 캡션 쌍 데이터셋으로 학습된 CLIP 기반 모델입니다.
 
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/24fda302-26e0-44cb-9d15-d463de620472/c32871a8-09fb-49a0-a99d-47dd4a42572a/image.png)
+<img width="877" alt="image 1" src="https://github.com/user-attachments/assets/b88b405b-f8bd-44d8-ac84-91352db9606b">
+
 
 - heatmap을 통해 FASHION CLIP이 패션아이템의 디테일을 인식하고 있는 것을 알 수 있습니다.
 
@@ -26,12 +27,14 @@
 
 ### Generate outfit(modified) vector
 
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/24fda302-26e0-44cb-9d15-d463de620472/8803e524-5f29-48d2-a432-6bd97af04cbe/image.png)
+<img width="910" alt="image 2" src="https://github.com/user-attachments/assets/e77bdda7-71cc-4377-88db-8b28f9d1e419">
+
 
 - 학습을 위해 배경을 흰색으로 날린(By. SAM) 상의, 하의, 신발을 포함한 전신샷 코디이미지를 준비했습니다.
 - 코디 이미지를 적절한 비율로 상의, 하의, 신발로 crop하여 코디 내의 단일 이미지를 image encoder가 잘 이해할 수 있도록 했습니다.
 
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/24fda302-26e0-44cb-9d15-d463de620472/606c7fb9-9d16-46f1-bf29-4ce0efdc455e/image.png)
+<img width="686" alt="image 3" src="https://github.com/user-attachments/assets/32db773f-5f94-4921-89df-e010a7a1d365">
+
 
 1. 크롭된 코디 이미지(상의, 하의, 신발)를 각각 Image Encoder(FASHION CLIP)을 사용해서 512차원으로 인코딩하였습니다.
 2. 각 카테고리 별 인코딩된 벡터들을 concatenate하여 (3, 512)차원의 outfit vector를 만듭니다.
@@ -40,7 +43,8 @@
 
 ### Training
 
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/24fda302-26e0-44cb-9d15-d463de620472/3df6adb0-b54f-4586-bdc6-820ffc4e125b/image.png)
+<img width="707" alt="image 4" src="https://github.com/user-attachments/assets/ffc65012-6aaf-4d3a-b2a9-f4c99715f5f6">
+
 
 - 학습은 단일 latent space에서 어울림을 학습합니다
     - outfit vector와 modified vector 모두 같은 lantent space에서 동일한 어울림을 학습합니다.
@@ -54,18 +58,26 @@
 
 ---
 
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/24fda302-26e0-44cb-9d15-d463de620472/b7aa08d6-d131-40fd-9fa9-3f1fd7424041/image.png)
+<img width="620" alt="image 5" src="https://github.com/user-attachments/assets/e162cf55-35d9-4ed8-902d-936d4da4a79f">
+
 
 - overfitting 없이 학습이 되었습니다.
 
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/24fda302-26e0-44cb-9d15-d463de620472/be0cea76-e07d-4d29-b250-0fb6a1bb75d4/image.png)
+<img width="894" alt="image 6" src="https://github.com/user-attachments/assets/c2e43cd8-c399-4b85-a9ca-f138e86fa043">
+
 
 - outfit vector는 유사도가 modified vector(가우시안 분포를 띄는것으로 보입니다)보다 더 크게 분포되어있는 것을 알 수 있습니다.
 - outfit vector와 modified vector 간의 유사도를 통해 명확히 어울리는 것은 어울리는 것으로, 어울리지 않는 것은 어울리지 않음으로 처리하는 것을 확인할 수 있습니다.
 
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/24fda302-26e0-44cb-9d15-d463de620472/22f9a6d9-1ff3-4e66-bb62-20c340f4e8da/image.png)
+<img width="610" alt="image 7" src="https://github.com/user-attachments/assets/d1fd2282-352a-403c-bc93-2f341cb43ad9">
 
 - 다만 낮은 threshold에서만 성능이 좋고, threshold가 높아질 수록 성능이 떨어진 것을 확인할 수 있었습니다.
+
+<img width="414" alt="image" src="https://github.com/user-attachments/assets/d473a5f4-57ea-418c-8a7c-cf8293b860b2">
+
+<img width="363" alt="image" src="https://github.com/user-attachments/assets/205b7957-676e-41f3-94b3-b8dde1e3455f">
+
+
 
 # 5. Discussion
 
