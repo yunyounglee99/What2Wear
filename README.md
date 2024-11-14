@@ -47,7 +47,7 @@
 
 
 - 학습은 단일 latent space에서 어울림을 학습합니다
-    - outfit vector와 modified vector 모두 같은 lantent space에서 동일한 어울림을 학습합니다.
+    - outfit vector와 modified vector 모두 같은 latent space에서 동일한 어울림을 학습합니다.
     - 학습할 때에는 각각 카테고리 조합별로 contrastive loss를 수행합니다.  (상의, 하의), (하의, 신발), (상의, 신발) 총 3번의 loss를 수행한 후 이에 대한 평균을 구합니다.
     - outfit vector는 명확한 어울림을 학습하기 위한 데이터로, 각각의 유사도가 최대일 때, loss가 최소가 되도록 하였습니다.
     - modified vector는 적당한 어울림을 학습하기 위한 데이터로, 특정 threshold 이상일때는 어울림, 즉 loss를 최대한 갖지 않도록 하고, 특정 threshold 이하일때는 어울리지 않음, 즉, 큰 loss를 갖도록 하였습니다.
