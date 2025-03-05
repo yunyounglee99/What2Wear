@@ -12,12 +12,9 @@ class MatchingLoss(nn.Module):
     self.dropout = nn.Dropout(dropout_rate)
     self.norm_layer = nn.LayerNorm(512)
 
-  def forward(self, original_vectors, modified_vectors):
-    original_embedded = F.normalize(torch.matmul(original_vectors, self.W), p=2, dim=-1)
-    modified_embedded = F.normalize(torch.matmul(modified_vectors, self.W), p=2, dim=-1)
-
-    original_similarties = []
-    modified_similarties = []
+  def calculate_sim(self, original_embedded, modified_embedded):
+    original_similarities = []
+    modified_similarities = []
 
     for i in range(3):
       for j in range(i+1, 3):
@@ -32,8 +29,16 @@ class MatchingLoss(nn.Module):
           dim=-1
         ) / self.temperature
 
-        original_similarties.append(original_sim)
-        modified_similarties.append(modified_sim)
+        original_similarities.append(original_sim)
+        modified_similarities.append(modified_sim)
+
+        return original_similarities, modified_similarities    
+
+  def forward(self, original_vectors, modified_vectors):
+    original_embedded = F.normalize(torch.matmul(original_vectors, self.W), p=2, dim=-1)
+    modified_embedded = F.normalize(torch.matmul(modified_vectors, self.W), p=2, dim=-1)
+
+    original_similarties, modified_similarties = self.calculate_sim(original_embedded, modified_embedded)
 
     original_similarties = torch.stack(original_similarties, dim=1).mean(dim=1)
     modified_similarties = torch.stack(modified_similarties, dim=1).mean(dim=1)
