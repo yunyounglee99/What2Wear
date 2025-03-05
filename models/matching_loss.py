@@ -34,3 +34,12 @@ class MatchingLoss(nn.Module):
 
         original_similarties.append(original_sim)
         modified_similarties.append(modified_sim)
+
+    original_similarties = torch.stack(original_similarties, dim=1).mean(dim=1)
+    modified_similarties = torch.stack(modified_similarties, dim=1).mean(dim=1)
+
+    target_loss = torch.relu(1-original_similarties.mean())
+    matching_loss = torch.relu(self.threshold - modified_similarties.mean())
+    total_loss = target_loss + matching_loss
+
+    return total_loss + 0.01*torch.norm(self.W, p=2)
