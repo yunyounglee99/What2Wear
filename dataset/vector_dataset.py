@@ -40,7 +40,7 @@ class VectorDataset(Dataset):
   
   def modify_vector(self, original_vector, change_count):
     change_count = self.change_count
-    modified_vector = original_vector.cloen()
+    modified_vector = original_vector.clone()
     available_indices = list(range(3))
     for _ in range(change_count):
       if not available_indices:
