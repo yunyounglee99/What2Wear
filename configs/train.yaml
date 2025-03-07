@@ -1,6 +1,20 @@
+# dataset
 dataset:
 data_path:
 batch_size:
+change_count:
+
 num_epochs:
+
+#model
+threshold:
+temperature:
+dropout_rate:
+
+# optimizer
 learning_rate:
-loss_weights:
+weight_decay:
+
+# scheduler
+step_size:
+gamma:

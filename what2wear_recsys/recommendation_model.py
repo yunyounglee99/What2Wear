@@ -7,22 +7,20 @@ class W2WRecommendation:
     self.model = model
 
   def find_best_match(self,
-                      item_vector,
-                      category,
+                      top_vector=None,
+                      bottom_vector=None,
+                      shoes_vector=None,
                       bottoms=None, 
                       shoes=None, 
                       tops=None, 
                       bottom_paths=None,
                       shoes_paths=None,
                       top_paths=None):
-    if category == 'top' and bottoms is not None and shoes is not None:
-      return self._find_best_bottom_shoes(item_vector, bottoms, shoes, bottom_paths, shoes_paths)
-    elif category == 'bottom' and tops is not None and shoes is not None:
-      return self._find_best_bottom_shoes(item_vector, bottoms, shoes, bottom_paths, shoes_paths)
-    elif category == 'shoes' and bottoms is not None and tops is not None:
-      return self._find_best_bottom_shoes(item_vector, bottoms, shoes, bottom_paths, shoes_paths)
+
+    if top_vector is None and bottom_vector is None and shoes_vector is None:
+      raise ValueError("Invalid input : Please provide appropriate vectors")
     else:
-      raise ValueError("Invalid input : Please provide appropriate vectors for the given category")
+      return self._find_best_items(tops, bottoms, shoes, top_paths, bottom_paths, shoes_paths, top_vector, bottom_vector, shoes_vector)
     
   def _find_best_items(self,
                       tops,
