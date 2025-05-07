@@ -69,11 +69,6 @@
 
 ---
 
-<img width="620" alt="image 5" src="https://github.com/user-attachments/assets/e162cf55-35d9-4ed8-902d-936d4da4a79f">
-
-
-- overfitting 없이 학습이 되었습니다.
-
 <img width="894" alt="image 6" src="https://github.com/user-attachments/assets/c2e43cd8-c399-4b85-a9ca-f138e86fa043">
 
 
