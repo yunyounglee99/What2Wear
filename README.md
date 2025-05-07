@@ -1,5 +1,16 @@
 # What2Wear
 
+# Example Results
+
+<img width="414" alt="image" src="https://github.com/user-attachments/assets/d473a5f4-57ea-418c-8a7c-cf8293b860b2">
+
+<img width="363" alt="image" src="https://github.com/user-attachments/assets/205b7957-676e-41f3-94b3-b8dde1e3455f">
+
+# Recomendation Algorithm
+
+<img width="599" alt="스크린샷 2025-05-07 오후 1 03 42" src="https://github.com/user-attachments/assets/a32d58ee-c5bd-492c-a6b9-ded365107c3d" />
+
+
 # 1. Introduction
 
 ---
@@ -72,10 +83,6 @@
 <img width="610" alt="image 7" src="https://github.com/user-attachments/assets/d1fd2282-352a-403c-bc93-2f341cb43ad9">
 
 - 다만 낮은 threshold에서만 성능이 좋고, threshold가 높아질 수록 성능이 떨어진 것을 확인할 수 있었습니다.
-
-<img width="414" alt="image" src="https://github.com/user-attachments/assets/d473a5f4-57ea-418c-8a7c-cf8293b860b2">
-
-<img width="363" alt="image" src="https://github.com/user-attachments/assets/205b7957-676e-41f3-94b3-b8dde1e3455f">
 
 
 
